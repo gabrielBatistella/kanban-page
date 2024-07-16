@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Monkey D. Luffy",
+    "picture": "/luffy.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Roronoa Zoro",
+    "picture": "/zoro.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Nami",
+    "picture": "/nami.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Usopp",
+    "picture": "/usopp.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Sanji",
+    "picture": "/sanji.jpg"
+  }
+]

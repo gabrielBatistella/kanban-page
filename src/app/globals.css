@@ -3,28 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
   --background-rgb: 228, 228, 228;
-  --primary-rgb: 100, 100, 100;
+  --background-focus-rgb: 223, 223, 223;
+  --primary-rgb: 0, 0, 0;
   --secondary-rgb: 160, 160, 160;
+  --priority-high-rgb: 128, 0, 0;
+  --priority-medium-rgb: 255, 165, 0;
+  --priority-low-rgb: 7, 48, 35;
+  --priority-blank-rgb: 200, 200, 200;
+  --deadline-late-rgb: 255, 106, 106;
+  --deadline-close-rgb: 252, 191, 141;
+  --status-finished-rgb: 221, 255, 221;
+  --status-inprogress-rgb: 174, 225, 255;
+  --status-todo-rgb: 210, 210, 210;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
     --background-rgb: 14, 14, 14;
-    --primary-rgb: 100, 100, 100;
+    --primary-rgb: 255, 255, 255;
     --secondary-rgb: 160, 160, 160;
   }
-}
+} */
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--primary-rgb));
   background: rgb(var(--background-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
