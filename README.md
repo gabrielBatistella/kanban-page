@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Front-end de um quadro Kanban para o Tech Challenge CEFIS.
 
-## Getting Started
+## :memo: Descrição
+Trata-se de uma página simples que permite administrar tarefas (de uma base de dados fictícia) por meio de um quadro Kanban.
 
-First, run the development server:
+A página permite:
+* Arrastar tarefas entre as colunas "Não iniciado", "Iniciado" e "Concluído";
+* Visualizar tarefas nos três quadros aplicando diferentes filtros;
+* Adicionar novas tarefas.
 
+## :wrench: Tecnologias utilizadas
+* NextJS;
+* Tailwind CSS.
+
+## :rocket: Rodando a aplicação
+Primeiro, devemos instalar as dependências necessárias:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm i
+# ou
+npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Em seguida, é preciso realizar a build:
+```bash
+pnpm build
+# ou
+npm run build
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Por fim, para executar a página:
+```bash
+pnpm start
+# ou
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## :handshake: Colaboradores
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/gabriel-batistella-768a8a256/">
+        <img src="https://media.licdn.com/dms/image/D4D03AQEzfBY82uXinw/profile-displayphoto-shrink_800_800/0/1671499117034?e=1724889600&v=beta&t=qWnQJcjtqMqGDSVQr_v9JAZxJcZgWKtzgKUATycD2n0" width="100px;" alt="Foto de Gabriel Batistella no Linkedin"/><br>
+        <sub>
+          <b>Gabriel Batistella</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
