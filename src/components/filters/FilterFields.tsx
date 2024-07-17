@@ -39,7 +39,7 @@ export default async function FilterFields() {
   return (
     <div className="w-full flex flex-row gap-4 justify-between items-center">
       <div className="flex flex-[2_2_0%] gap-2 items-center">
-        <BsSearch size={24} className="text-secondary" />
+        <BsSearch size={24} className="text-tertiary" />
         <FilterInput label="Buscar" placeholder="Tarefa ou Detalhes" paramName="search" />
       </div>
       <div className="flex flex-[5_5_0%] gap-4 items-center">

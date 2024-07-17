@@ -30,8 +30,8 @@ export default function FilterInput(props: FilterInputProps) {
   }, 300)
 
   return (
-    <div className="group w-full relative flex items-center rounded-md border border-secondary">
-      <label htmlFor={inputId} className="absolute -top-2 left-2 px-1 text-xs text-secondary bg-background group-focus-within:text-primary">
+    <div className="group w-full relative flex items-center rounded-md border border-tertiary">
+      <label htmlFor={inputId} className="absolute -top-2 left-2 px-1 text-xs text-tertiary bg-background group-focus-within:text-primary">
         {props.label}
       </label>
 

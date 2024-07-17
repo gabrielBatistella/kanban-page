@@ -28,8 +28,8 @@ export default function FilterSelect(props: FilterSelectProps) {
   }
 
   return (
-    <div className="group w-full relative flex items-center rounded-md border border-secondary">
-      <label htmlFor={selectId} className="absolute -top-2 left-2 px-1 text-xs text-secondary bg-background group-focus-within:text-primary">
+    <div className="group w-full relative flex items-center rounded-md border border-tertiary">
+      <label htmlFor={selectId} className="absolute -top-2 left-2 px-1 text-xs text-tertiary bg-background group-focus-within:text-primary">
         {props.label}
       </label>
 
@@ -37,7 +37,7 @@ export default function FilterSelect(props: FilterSelectProps) {
         id={selectId}
         onChange={(event) => handleOnChangeSelection(event.target.value)}
         defaultValue={filterValue ?? ""}
-        className={`flex-1 pt-2.5 pb-2 px-3 text-sm ${filterValue ? "text-primary" : "text-secondary"} rounded-md bg-transparent cursor-pointer`}
+        className={`flex-1 pt-2.5 pb-2 px-3 text-sm ${filterValue ? "text-primary" : "text-tertiary"} rounded-md bg-transparent cursor-pointer`}
       >
         <option value={""} className="text-md text-primary bg-background">Todos</option>
         {props.options.map((option) => (

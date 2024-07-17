@@ -33,7 +33,7 @@ export default function KanbanCard(props: KanbanCardProps) {
   let deadlineTagColorClass: string;
   let deadlineTagText: string;
   if (props.task.status === "finished") {
-    deadlineTagColorClass = "bg-status-finished";
+    deadlineTagColorClass = "bg-deadline-finished";
     deadlineTagText = "Concluída";
   }
   else {
@@ -41,7 +41,7 @@ export default function KanbanCard(props: KanbanCardProps) {
     const dueDate = new Date(props.task.dueDate.getTime()); dueDate.setHours(0, 0, 0, 0);
     const daysRemaining = (dueDate.getTime() - today.getTime()) / (1000 * 3600 * 24);
     if (daysRemaining > 1) {
-      deadlineTagColorClass = "bg-status-todo";
+      deadlineTagColorClass = "bg-deadline-distant";
       deadlineTagText = `${daysRemaining} dias (${dueDate.toLocaleDateString().slice(0, 5)})`;
     }
     else if (daysRemaining === 1) {
@@ -92,7 +92,7 @@ export default function KanbanCard(props: KanbanCardProps) {
   }, []);
 
   return (
-    <div className={`w-full relative flex ${dragging ? "opacity-40" : "opacity-100"}`}>
+    <div className={`w-full min-w-72 relative flex ${dragging ? "opacity-40" : "opacity-100"}`}>
       <div ref={cardRef} className="flex flex-1 flex-col px-4 py-2 rounded-md bg-background shadow-md cursor-grab hover:bg-background-focus active:bg-background-focus active:drop-shadow-lg active:cursor-grabbing">
         <div className="h-full w-2 absolute flex flex-col gap-0.5 top-0 left-0">
           <div className={`flex flex-1 rounded-tl-md ${upperBarColorClass}`} />
@@ -112,12 +112,12 @@ export default function KanbanCard(props: KanbanCardProps) {
                 <span className="-ml-2">
                   <MemberPic member={props.task.responsible} size={18} />
                 </span>
-                <span className="text-lg text-secondary">
+                <span className="mb-1 text-lg text-tertiary">
                   |
                 </span>
                 <div className={`w-fit flex flex-row gap-1.5 px-2 py-1 items-center rounded-full ${deadlineTagColorClass}`}>
                   <BsCalendar size={14} />
-                  <span className="text-xs">
+                  <span className="text-xs whitespace-nowrap">
                     {deadlineTagText}
                   </span>
                 </div>
@@ -138,7 +138,7 @@ export default function KanbanCard(props: KanbanCardProps) {
               </div>
 
               <div className="flex flex-row gap-2 ml-4 mb-2 items-center">
-                <BsArchive size={14} className="text-secondary" />
+                <BsArchive size={14} className="text-tertiary" />
                 <span className="text-xs text-secondary">
                   {props.task.project}
                 </span>
@@ -149,16 +149,16 @@ export default function KanbanCard(props: KanbanCardProps) {
                 <span className="text-xs text-secondary">
                   {props.task.requester.firstName}
                 </span>
-                <BsArrowRight size={16} className="text-secondary mx-1" />
+                <BsArrowRight size={16} className="text-tertiary mx-1" />
                 <MemberPic member={props.task.responsible} size={18} />
                 <span className="text-xs text-secondary">
                   {props.task.responsible.firstName}
                 </span>
               </div>
 
-              <div className={`w-fit flex flex-row gap-2 mt-1 ml-2.5 px-2 py-1 items-center rounded-full ${deadlineTagColorClass}`}>
+              <div className={`w-fit flex flex-row gap-2 mt-2 ml-2.5 px-2 py-1 items-center rounded-full ${deadlineTagColorClass}`}>
                 <BsCalendar size={14} />
-                <span className="text-xs">
+                <span className="text-xs whitespace-nowrap">
                   {deadlineTagText}
                 </span>
               </div>

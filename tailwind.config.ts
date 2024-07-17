@@ -19,6 +19,8 @@ const config: Config = {
         "priority-blank": "rgb(var(--priority-blank-rgb))",
         "deadline-late": "rgb(var(--deadline-late-rgb))",
         "deadline-close": "rgb(var(--deadline-close-rgb))",
+        "deadline-distant": "rgb(var(--deadline-distant-rgb))",
+        "deadline-finished": "rgb(var(--deadline-finished-rgb))",
         "status-finished": "rgb(var(--status-finished-rgb))",
         "status-inprogress": "rgb(var(--status-inprogress-rgb))",
         "status-todo": "rgb(var(--status-todo-rgb))",
