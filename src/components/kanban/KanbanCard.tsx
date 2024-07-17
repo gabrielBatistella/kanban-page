@@ -7,7 +7,7 @@ import invariant from "tiny-invariant";
 
 import { type Task } from "@/lib/types/task";
 
-import MemberPic from "@/components/MemberPic";
+import MemberPic from "@/components/kanban/MemberPic";
 
 type KanbanCardProps = {
   task: Task;
@@ -93,7 +93,7 @@ export default function KanbanCard(props: KanbanCardProps) {
 
   return (
     <div className={`w-full relative flex ${dragging ? "opacity-40" : "opacity-100"}`}>
-      <div ref={cardRef} className="flex flex-1 flex-col px-4 py-2 rounded-md bg-background shadow-md hover:bg-background-focus hover:cursor-grab active:bg-background-focus active:drop-shadow-lg active:cursor-grabbing">
+      <div ref={cardRef} className="flex flex-1 flex-col px-4 py-2 rounded-md bg-background shadow-md cursor-grab hover:bg-background-focus active:bg-background-focus active:drop-shadow-lg active:cursor-grabbing">
         <div className="h-full w-2 absolute flex flex-col gap-0.5 top-0 left-0">
           <div className={`flex flex-1 rounded-tl-md ${upperBarColorClass}`} />
           <div className={`flex flex-1 ${middleBarColorClass}`} />
@@ -103,16 +103,18 @@ export default function KanbanCard(props: KanbanCardProps) {
         {collapsed
           ? (
             <>
-              <h2 className="text-md ml-1">
+              <h3 className="text-md ml-1">
                 {props.task.description}
-              </h2>
+              </h3>
 
               <div className="flex flex-row gap-1 ml-2 items-center">
                 <MemberPic member={props.task.requester} size={18} />
                 <span className="-ml-2">
                   <MemberPic member={props.task.responsible} size={18} />
                 </span>
-                <span className="text-lg text-secondary"> | </span>
+                <span className="text-lg text-secondary">
+                  |
+                </span>
                 <div className={`w-fit flex flex-row gap-1.5 px-2 py-1 items-center rounded-full ${deadlineTagColorClass}`}>
                   <BsCalendar size={14} />
                   <span className="text-xs">
@@ -124,9 +126,9 @@ export default function KanbanCard(props: KanbanCardProps) {
           )
           : (
             <>
-              <h2 className="text-md font-bold ml-1">
+              <h3 className="text-md font-bold ml-1">
                 {props.task.description}
-              </h2>
+              </h3>
 
               <div className="flex flex-row gap-1 ml-2 mb-1 items-center">
                 <BsArrowReturnRight size={16} />
@@ -165,7 +167,7 @@ export default function KanbanCard(props: KanbanCardProps) {
         }
       </div>
 
-      <div className="absolute bottom-0 right-0 justify-center content-center px-2 py-1 m-1 aspect-square rounded-full hover:bg-background-focus hover:cursor-pointer" onClick={() => setCollapsed((previous) => !previous)}>
+      <div className="absolute bottom-0 right-0 justify-center content-center px-2 py-1 m-1 aspect-square rounded-full cursor-pointer hover:bg-background-focus" onClick={() => setCollapsed((previous) => !previous)}>
         {collapsed
           ? (
             <BsChevronDown size={18} className="text-secondary" />

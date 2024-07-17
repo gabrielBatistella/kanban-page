@@ -12,6 +12,7 @@ const config: Config = {
         "background-focus": "rgb(var(--background-focus-rgb))",
         "primary": "rgb(var(--primary-rgb))",
         "secondary": "rgb(var(--secondary-rgb))",
+        "tertiary": "rgb(var(--tertiary-rgb))",
         "priority-high": "rgb(var(--priority-high-rgb))",
         "priority-medium": "rgb(var(--priority-medium-rgb))",
         "priority-low": "rgb(var(--priority-low-rgb))",

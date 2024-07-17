@@ -1,10 +1,11 @@
 import { type Task, type PriorityLevel } from "@/lib/types/task";
 import { fetchTasksFiltered } from "@/lib/queries/task";
 
-import KanbanBoard from "@/components/KanbanBoard";
-import FilterFields from "@/components/FilterFields";
+import KanbanBoard from "@/components/kanban/KanbanBoard";
+import FilterFields from "@/components/filters/FilterFields";
+import AddTaskButton from "@/components/add-new/AddTaskButton";
 
-type RootProps = {
+type HomeProps = {
   searchParams?: {
     search?: string;
     responsible?: string;
@@ -14,7 +15,7 @@ type RootProps = {
   };
 }
 
-export default async function Home({ searchParams }: RootProps) {
+export default async function Home({ searchParams }: HomeProps) {
   const search = searchParams?.search;
   const requesterId = Number(searchParams?.requester) || undefined;
   const responsibleId = Number(searchParams?.responsible) || undefined;
@@ -25,7 +26,8 @@ export default async function Home({ searchParams }: RootProps) {
 
   return (
     <div className="w-full flex flex-col items-start">
-      <div className="w-full flex flex-row gap-4 justify-between items-center mb-5">
+      <div className="w-full flex flex-row gap-8 items-stretch mb-5">
+        <AddTaskButton />
         <FilterFields />
       </div>
       <KanbanBoard tasks={tasks} />

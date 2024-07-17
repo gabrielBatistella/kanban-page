@@ -6,9 +6,9 @@ export default function Header() {
       </h1>
 
       <div className="flex flex-row items-center">
-        <h3 className="font-bold mr-3">
+        <span className="font-bold mr-3">
           M. John Doe
-        </h3>
+        </span>
       </div>
     </div>
   );

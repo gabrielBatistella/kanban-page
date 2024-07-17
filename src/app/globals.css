@@ -6,7 +6,8 @@
   --background-rgb: 228, 228, 228;
   --background-focus-rgb: 223, 223, 223;
   --primary-rgb: 0, 0, 0;
-  --secondary-rgb: 160, 160, 160;
+  --secondary-rgb: 120, 120, 120;
+  --tertiary-rgb: 180, 180, 180;
   --priority-high-rgb: 128, 0, 0;
   --priority-medium-rgb: 255, 165, 0;
   --priority-low-rgb: 7, 48, 35;

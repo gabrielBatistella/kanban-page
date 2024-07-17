@@ -7,7 +7,7 @@ import invariant from "tiny-invariant";
 
 import { type Task, type TaskStatus } from "@/lib/types/task";
 
-import KanbanCard from "@/components/KanbanCard";
+import KanbanCard from "@/components/kanban/KanbanCard";
 
 type KanbanColumnProps = {
   label: string;
@@ -73,9 +73,9 @@ export default function KanbanColumn(props: KanbanColumnProps) {
   return (
     <div ref={boardRef} className={"w-full relative flex"}>
       <div className={`flex flex-1 flex-col gap-4 justify-center items-start px-4 py-3 rounded-md ${boardColorClass} shadow-inner`}>
-        <h3 className="text-md font-bold -mb-2 ml-1">
+        <h2 className="text-md font-bold -mb-2 ml-1">
           {props.label}
-        </h3>
+        </h2>
 
         {tasksSeparatedByUrgency["close"].map((task) => (
           <KanbanCard key={task.id} task={task} />
@@ -84,13 +84,17 @@ export default function KanbanColumn(props: KanbanColumnProps) {
         {props.status !== "finished" && (
           <>
             <div className="w-full flex flex-row justify-between items-center opacity-30">
-              <hr className="h-0.5 flex-1 text-primary bg-primary" />
+              <hr className="h-0.5 flex-1 bg-primary" />
 
-              <div className="flex flex-row mx-2 py-1 pl-2.5 pr-2 justify-between items-center gap-2 rounded-md border-primary border hover:bg-background-focus hover:cursor-pointer" onClick={() => setShowDistant((previous) => !previous)}>
-                <span className="text-sm"> Uma semana ou mais </span>
-                <hr className="h-0.5 w-0.5 text-primary bg-primary" />
+              <div className="flex flex-row mx-2 py-1 pl-2.5 pr-2 justify-between items-center gap-2 rounded-md border border-primary cursor-pointer hover:bg-background-focus" onClick={() => setShowDistant((previous) => !previous)}>
+                <span className="text-sm">
+                  Uma semana ou mais
+                </span>
+                <hr className="h-0.5 w-0.5 bg-primary" />
                 <div className="flex flex-row justify-center items-center gap-2">
-                  <span className="text-sm"> {tasksSeparatedByUrgency["distant"].length} </span>
+                  <span className="text-sm">
+                    {tasksSeparatedByUrgency["distant"].length}
+                  </span>
                   {!showDistant
                     ? (
                       <BsChevronDown size={18} className="text-primary" />
@@ -102,7 +106,7 @@ export default function KanbanColumn(props: KanbanColumnProps) {
                 </div>
               </div>
 
-              <hr className="h-0.5 flex-1 text-primary bg-primary" />
+              <hr className="h-0.5 flex-1 bg-primary" />
             </div>
 
             {showDistant && (

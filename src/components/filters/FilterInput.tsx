@@ -7,6 +7,7 @@ type FilterInputProps = {
   label: string;
   placeholder: string;
   paramName: string;
+  type?: string;
 }
 
 export default function FilterInput(props: FilterInputProps) {
@@ -29,7 +30,7 @@ export default function FilterInput(props: FilterInputProps) {
   }, 300)
 
   return (
-    <div className="group w-full relative flex items-center rounded-md border-secondary border">
+    <div className="group w-full relative flex items-center rounded-md border border-secondary">
       <label htmlFor={inputId} className="absolute -top-2 left-2 px-1 text-xs text-secondary bg-background group-focus-within:text-primary">
         {props.label}
       </label>
@@ -37,6 +38,7 @@ export default function FilterInput(props: FilterInputProps) {
       <input
         id={inputId}
         placeholder={props.placeholder}
+        type={props.type}
         onChange={(event) => handleOnChangeInput(event.target.value)}
         defaultValue={filterValue ?? ""}
         className="flex-1 pt-2.5 pb-2 px-4 text-sm text-primary rounded-md bg-transparent"

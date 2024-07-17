@@ -17,7 +17,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <div className="flex flex-1 pt-20 pb-10 px-16">
+        <div className="w-full flex pt-20 pb-10 px-16">
           {children}
         </div>
       </body>

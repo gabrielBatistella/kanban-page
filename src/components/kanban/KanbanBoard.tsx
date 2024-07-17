@@ -6,7 +6,7 @@ import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/element/ad
 import { type Task, type TaskStatus } from "@/lib/types/task";
 import { switchTaskStatus } from "@/lib/actions/task";
 
-import KanbanColumn from "@/components/KanbanColumn";
+import KanbanColumn from "@/components/kanban/KanbanColumn";
 
 type KanbanBoardProps = {
   tasks: Task[];
