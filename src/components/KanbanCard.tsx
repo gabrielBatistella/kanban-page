@@ -14,9 +14,9 @@ type KanbanCardProps = {
 }
 
 export default function KanbanCard(props: KanbanCardProps) {
-  let upperBarColorClass: string = "bg-priority-blank";
-  let middleBarColorClass: string = "bg-priority-blank";
-  let bottomBarColorClass: string = "bg-priority-blank";
+  let upperBarColorClass = "bg-priority-blank";
+  let middleBarColorClass = "bg-priority-blank";
+  let bottomBarColorClass = "bg-priority-blank";
   if (props.task.priority === "high") {
     upperBarColorClass = "bg-priority-high";
     middleBarColorClass = "bg-priority-high";
@@ -92,8 +92,8 @@ export default function KanbanCard(props: KanbanCardProps) {
   }, []);
 
   return (
-    <div className={`w-full flex relative ${dragging ? "opacity-40" : "opacity-100"}`}>
-      <div ref={cardRef} className="flex flex-1 flex-col px-4 py-2 rounded-md bg-background shadow-lg hover:bg-background-focus hover:cursor-grab active:bg-background-focus active:drop-shadow-lg active:cursor-grabbing">
+    <div className={`w-full relative flex ${dragging ? "opacity-40" : "opacity-100"}`}>
+      <div ref={cardRef} className="flex flex-1 flex-col px-4 py-2 rounded-md bg-background shadow-md hover:bg-background-focus hover:cursor-grab active:bg-background-focus active:drop-shadow-lg active:cursor-grabbing">
         <div className="h-full w-2 absolute flex flex-col gap-0.5 top-0 left-0">
           <div className={`flex flex-1 rounded-tl-md ${upperBarColorClass}`} />
           <div className={`flex flex-1 ${middleBarColorClass}`} />

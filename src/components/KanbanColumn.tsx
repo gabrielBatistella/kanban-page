@@ -10,20 +10,20 @@ import { type Task, type TaskStatus } from "@/lib/types/task";
 import KanbanCard from "@/components/KanbanCard";
 
 type KanbanColumnProps = {
-  tasks: Task[];
   label: string;
   status: TaskStatus;
+  tasks: Task[];
 }
 
 export default function KanbanColumn(props: KanbanColumnProps) {
-  const boardColorClass: string = props.status === "finished"
+  const boardColorClass = props.status === "finished"
     ? "bg-status-finished"
     : props.status === "in-progress"
       ? "bg-status-inprogress"
       : "bg-status-todo";
 
   const today = new Date(); today.setHours(0, 0, 0, 0);
-  const tasksSeparatedByUrgency: { [key in "close" | "distant"]: Task[] } = props.tasks.reduce((acc, task) => {
+  const tasksSeparatedByUrgency = props.tasks.reduce((acc, task) => {
     if (props.status === "finished") {
       acc["close"].push(task);
     }
@@ -71,9 +71,9 @@ export default function KanbanColumn(props: KanbanColumnProps) {
   }, []);
 
   return (
-    <div ref={boardRef} className={`w-full relative flex`}>
-      <div className={`flex flex-1 flex-col gap-4 justify-center items-start px-4 py-3 rounded-md ${boardColorClass}`}>
-        <h3 className="text-sm font-bold ml-1">
+    <div ref={boardRef} className={"w-full relative flex"}>
+      <div className={`flex flex-1 flex-col gap-4 justify-center items-start px-4 py-3 rounded-md ${boardColorClass} shadow-inner`}>
+        <h3 className="text-md font-bold -mb-2 ml-1">
           {props.label}
         </h3>
 
@@ -84,9 +84,9 @@ export default function KanbanColumn(props: KanbanColumnProps) {
         {props.status !== "finished" && (
           <>
             <div className="w-full flex flex-row justify-between items-center opacity-30">
-              <hr className="h-0.5 w-24 text-primary bg-primary" />
+              <hr className="h-0.5 flex-1 text-primary bg-primary" />
 
-              <div className="flex flex-1 flex-row mx-2 py-1 pl-2.5 pr-2 justify-between items-center rounded-md border-primary border hover:bg-background-focus hover:cursor-pointer" onClick={() => setShowDistant((previous) => !previous)}>
+              <div className="flex flex-row mx-2 py-1 pl-2.5 pr-2 justify-between items-center gap-2 rounded-md border-primary border hover:bg-background-focus hover:cursor-pointer" onClick={() => setShowDistant((previous) => !previous)}>
                 <span className="text-sm"> Uma semana ou mais </span>
                 <hr className="h-0.5 w-0.5 text-primary bg-primary" />
                 <div className="flex flex-row justify-center items-center gap-2">
@@ -102,7 +102,7 @@ export default function KanbanColumn(props: KanbanColumnProps) {
                 </div>
               </div>
 
-              <hr className="h-0.5 w-24 text-primary bg-primary" />
+              <hr className="h-0.5 flex-1 text-primary bg-primary" />
             </div>
 
             {showDistant && (

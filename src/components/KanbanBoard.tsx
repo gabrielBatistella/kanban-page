@@ -13,7 +13,7 @@ type KanbanBoardProps = {
 }
 
 export default function KanbanBoard(props: KanbanBoardProps) {
-  const taskColumns: { [key in TaskStatus]: Task[] } = props.tasks.reduce((acc, task) => {
+  const taskColumns = props.tasks.reduce((acc, task) => {
     acc[task.status].push(task);
     return acc;
   }, { "to-do": [], "in-progress": [], "finished": [] } as { [key in TaskStatus]: Task[] });
@@ -33,10 +33,10 @@ export default function KanbanBoard(props: KanbanBoardProps) {
   }, []);
 
   return (
-    <div className="flex flex-1 flex-row gap-4 justify-center items-start">
-      <KanbanColumn tasks={taskColumns["to-do"]} label="Não iniciado" status="to-do" />
-      <KanbanColumn tasks={taskColumns["in-progress"]} label="Iniciado" status="in-progress" />
-      <KanbanColumn tasks={taskColumns["finished"]} label="Concluído" status="finished" />
+    <div className="w-full flex flex-row gap-4 justify-center items-start">
+      <KanbanColumn label="Não iniciado" status="to-do" tasks={taskColumns["to-do"]} />
+      <KanbanColumn label="Iniciado" status="in-progress" tasks={taskColumns["in-progress"]} />
+      <KanbanColumn label="Concluído" status="finished" tasks={taskColumns["finished"]} />
     </div>
   );
 }
