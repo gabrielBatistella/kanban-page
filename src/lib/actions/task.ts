@@ -51,7 +51,3 @@ export async function switchTaskStatus(id: number, status: TaskStatus) {
   await writeTasks(tasksFromDb);
   revalidatePath("/");
 }
-
-// export async function addTask(task: Omit<TaskModel, "id">) {
-//   tasks.push({ id: tasks[tasks.length - 1].id + 1, ...task });
-// }
